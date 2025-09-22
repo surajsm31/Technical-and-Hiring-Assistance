@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring Recruiter Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .register-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        .btn-custom {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h3 class="text-center mb-4">Hiring Recruiter Registration</h3>
+        <form action="HR" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="full_name" required class="form-control" placeholder="Enter your full name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" id="email" required class="form-control" placeholder="Enter your email">
+                <small id="emailError" class="text-danger"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Company Name</label>
+                <input type="text" name="company_name" required class="form-control" placeholder="Enter Company Name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Your Job Position</label>
+                <input type="text" name="job_position" required class="form-control" placeholder="Enter Job Position">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contact Number</label>
+                <input type="tel" name="contact_number" required class="form-control" placeholder="Enter phone number">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <textarea name="company_address" required class="form-control" placeholder="Enter your address"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" id="password" required class="form-control" placeholder="Enter password" onkeyup="validatePassword()">
+                <input type="checkbox" onclick="password.type = this.checked ? 'text' : 'password' "><i style="font-size:15px;"> Check Password</i>
+                <small id="passwordError" class="text-danger"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirmPassword" required class="form-control" placeholder="Confirm your password" onkeyup="checkPasswordMatch()">
+                <small id="confirmError" class="text-danger"></small>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success btn-custom">Register</button>
+                <button type="reset" class="btn btn-danger btn-custom">Reset</button>
+                <a href="hrlogin" class="btn btn-primary btn-custom">Back</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('email').addEventListener('input', function () {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            document.getElementById('emailError').textContent = emailPattern.test(this.value) ? '' : 'Invalid email format';
+        });
+
+        function validatePassword() {
+            let password = document.getElementById("password").value;
+            let passwordError = document.getElementById("passwordError");
+
+            if (password.length < 8) {
+                passwordError.textContent = "Password must be at least 8 characters long.";
+            } else {
+                passwordError.textContent = "";
+            }
+            checkPasswordMatch(); // Ensure password match validation updates as well
+        }
+
+        function checkPasswordMatch() {
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let confirmError = document.getElementById("confirmError");
+
+            if (password !== confirmPassword) {
+                confirmError.textContent = "Passwords do not match.";
+            } else {
+                confirmError.textContent = "";
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

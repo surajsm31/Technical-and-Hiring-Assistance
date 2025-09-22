@@ -1,0 +1,1367 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Export Table to Excel</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container mt-5">-->
+<!--        <h2 class="text-center">Table Data</h2>-->
+<!--        <table id="data-table" class="table table-bordered">-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th>Name</th>-->
+<!--                    <th>Age</th>-->
+<!--                    <th>Email</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr>-->
+<!--                    <td>John Doe</td>-->
+<!--                    <td>30</td>-->
+<!--                    <td>john@example.com</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Jane Smith</td>-->
+<!--                    <td>25</td>-->
+<!--                    <td>jane@example.com</td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--        <button id="export-button" class="btn btn-primary">Export to Excel</button>-->
+<!--    </div>-->
+
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>-->
+<!--    <script>-->
+<!--        document.getElementById('export-button').addEventListener('click', function() {-->
+<!--    var table = document.getElementById('data-table');-->
+<!--    var workbook = XLSX.utils.table_to_book(table, {sheet: "Sheet1"});-->
+<!--    XLSX.writeFile(workbook, 'table_data.xlsx');-->
+<!--});-->
+
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--code for excel button -->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Export Table to Excel</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container mt-5">-->
+<!--        <h2 class="text-center">Table Data</h2>-->
+<!--        <table id="data-table" class="table table-bordered">-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th>Name</th>-->
+<!--                    <th>Age</th>-->
+<!--                    <th>Email</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr>-->
+<!--                    <td>John Doswe</td>-->
+<!--                    <td>30</td>-->
+<!--                    <td>john@example.com</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Jane Smith</td>-->
+<!--                    <td>25</td>-->
+<!--                    <td>jane@example.com</td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--        <button id="export-button" class="btn btn-primary">Export to Excel</button>-->
+<!--    </div>-->
+
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>-->
+<!--    <script>-->
+<!--        document.getElementById('export-button').addEventListener('click', function() {-->
+<!--    var table = document.getElementById('data-table');-->
+<!--    var workbook = XLSX.utils.table_to_book(table, {sheet: "Sheet1"});-->
+<!--    var wbout = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'});-->
+
+<!--    function s2ab(s) {-->
+<!--        var buf = new ArrayBuffer(s.length);-->
+<!--        var view = new Uint8Array(buf);-->
+<!--        for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;-->
+<!--        return buf;-->
+<!--    }-->
+
+<!--    var blob = new Blob([s2ab(wbout)], {type: "application/octet-stream"});-->
+<!--    var link = document.createElement("a");-->
+<!--    link.href = URL.createObjectURL(blob);-->
+<!--    link.download = "candidate.xlsx";-->
+<!--    link.click();-->
+<!--});-->
+
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--code for change the window-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Alert on Tab Change</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background-color: #f8f9fa;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--        }-->
+<!--        .container {-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container">-->
+<!--        <h2 class="text-center">Stay on This Page</h2>-->
+<!--        <p class="text-center">If you switch tabs or windows, you will receive an alert.</p>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        document.addEventListener('visibilitychange', function() {-->
+<!--            if (document.hidden) {-->
+<!--                alert('You have switched tabs or windows!');-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;count the changing window&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Alert on Tab Change</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background-color: #f8f9fa;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--        }-->
+<!--        .container {-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container">-->
+<!--        <h2 class="text-center">Stay on This Page</h2>-->
+<!--        <p class="text-center">If you switch tabs or windows, you will receive an alert with the count of how many times you have switched.</p>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        let switchCount = 0;-->
+
+<!--        document.addEventListener('visibilitychange', function() {-->
+<!--            if (document.hidden) {-->
+<!--                switchCount++;-->
+<!--                alert(`You have switched tabs or windows ${switchCount} times!`);-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Insert Picture</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background-color: #f8f9fa;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--        }-->
+<!--        .container {-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+<!--        .preview {-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        .preview img {-->
+<!--            max-width: 100%;-->
+<!--            height: auto;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container">-->
+<!--        <h2 class="text-center">Insert Picture</h2>-->
+<!--&lt;!&ndash;        <div class="text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="btn btn-primary" onclick="document.getElementById('cameraInput').click();">Take a Picture</button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click();">Upload a Picture</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--        <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display: none;" onchange="previewImage(event)">-->
+<!--        <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="previewImage(event)">-->
+<!--        <div class="preview text-center">-->
+<!--            <img id="previewImage" src="" alt="Image Preview" style="display: none;">-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        function previewImage(event) {-->
+<!--            var reader = new FileReader();-->
+<!--            reader.onload = function() {-->
+<!--                var output = document.getElementById('previewImage');-->
+<!--                output.src = reader.result;-->
+<!--                output.style.display = 'block';-->
+<!--            }-->
+<!--            reader.readAsDataURL(event.target.files[0]);-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Participation Certificate</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link rel="stylesheet" href="styles.css">-->
+<!--    <style>-->
+<!--        body {-->
+<!--    background-color: #f8f9fa;-->
+<!--    font-family: 'Arial', sans-serif;-->
+<!--}-->
+
+<!--.certificate-container {-->
+<!--    margin-top: 50px;-->
+<!--}-->
+
+<!--.certificate {-->
+<!--    border: 2px solid #000;-->
+<!--    padding: 30px;-->
+<!--    background-color: #fff;-->
+<!--    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);-->
+<!--}-->
+
+<!--.certificate-header h1 {-->
+<!--    font-size: 2.5em;-->
+<!--    margin-bottom: 20px;-->
+<!--    color: #333;-->
+<!--}-->
+
+<!--.certificate-body p {-->
+<!--    font-size: 1.2em;-->
+<!--    margin: 10px 0;-->
+<!--}-->
+
+<!--.certificate-body .candidate-name {-->
+<!--    font-size: 2em;-->
+<!--    font-weight: bold;-->
+<!--    margin: 20px 0;-->
+<!--}-->
+
+<!--.certificate-body .test-name,-->
+<!--.certificate-body .marks {-->
+<!--    font-size: 1.5em;-->
+<!--    font-weight: bold;-->
+<!--    margin: 10px 0;-->
+<!--}-->
+
+<!--.certificate-footer p {-->
+<!--    font-size: 1em;-->
+<!--    margin-top: 30px;-->
+<!--}-->
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container certificate-container">-->
+<!--        <div class="row justify-content-center">-->
+<!--            <div class="col-md-10">-->
+<!--                <div class="certificate">-->
+<!--                    <div class="certificate-header text-center">-->
+<!--                        <h1>Certificate of Participation</h1>-->
+<!--                    </div>-->
+<!--                    <div class="certificate-body text-center">-->
+<!--                        <p>This is to certify that</p>-->
+<!--                        <h2 class="candidate-name">[Candidate Name]</h2>-->
+<!--                        <p>has successfully participated in the</p>-->
+<!--                        <h3 class="test-name">[Test Name]</h3>-->
+<!--                        <p>and has achieved a score of</p>-->
+<!--                        <h3 class="marks">[Marks]</h3>-->
+<!--                    </div>-->
+<!--                    <div class="certificate-footer text-center">-->
+<!--                        <p>Issued on: <span class="issue-date">[Date]</span></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta name="author" content="Your Name">-->
+<!--    <title>Python Developer Portfolio</title>-->
+<!--    <link rel="stylesheet" href="css/style.css">-->
+<!--    <link rel="icon" href="assets/favicon.ico">-->
+<!--    <style>-->
+<!--        /* General Styles */-->
+<!--* {-->
+<!--    margin: 0;-->
+<!--    padding: 0;-->
+<!--    box-sizing: border-box;-->
+<!--}-->
+
+<!--body {-->
+<!--    font-family: Arial, sans-serif;-->
+<!--    line-height: 1.6;-->
+<!--    background-color: #f4f4f4;-->
+<!--}-->
+
+<!--.container {-->
+<!--    width: 80%;-->
+<!--    margin: 0 auto;-->
+<!--    padding: 2rem;-->
+<!--}-->
+
+<!--/* Header */-->
+<!--header {-->
+<!--    background: #333;-->
+<!--    color: #fff;-->
+<!--    padding: 1rem 0;-->
+<!--}-->
+
+<!--header nav ul {-->
+<!--    display: flex;-->
+<!--    justify-content: center;-->
+<!--    list-style: none;-->
+<!--}-->
+
+<!--header nav ul li {-->
+<!--    margin: 0 15px;-->
+<!--}-->
+
+<!--header nav ul li a {-->
+<!--    color: #fff;-->
+<!--    text-decoration: none;-->
+<!--    font-size: 18px;-->
+<!--}-->
+
+<!--/* Home Section */-->
+<!--#home {-->
+<!--    background: #2c3e50;-->
+<!--    color: white;-->
+<!--    text-align: center;-->
+<!--    padding: 100px 0;-->
+<!--}-->
+
+<!--#home h1 {-->
+<!--    font-size: 2.5rem;-->
+<!--}-->
+
+<!--#home p {-->
+<!--    font-size: 1.2rem;-->
+<!--}-->
+
+<!--button {-->
+<!--    padding: 10px 20px;-->
+<!--    font-size: 1rem;-->
+<!--    background: #3498db;-->
+<!--    border: none;-->
+<!--    color: white;-->
+<!--    cursor: pointer;-->
+<!--}-->
+
+<!--button:hover {-->
+<!--    background: #2980b9;-->
+<!--}-->
+
+<!--/* About Section */-->
+<!--#about {-->
+<!--    background: #ecf0f1;-->
+<!--    padding: 50px 0;-->
+<!--    text-align: center;-->
+<!--}-->
+
+<!--#about p {-->
+<!--    font-size: 1.1rem;-->
+<!--    max-width: 800px;-->
+<!--    margin: 0 auto;-->
+<!--}-->
+
+<!--/* Skills Section */-->
+<!--#skills {-->
+<!--    background: #fff;-->
+<!--    padding: 50px 0;-->
+<!--}-->
+
+<!--.skill-list {-->
+<!--    display: flex;-->
+<!--    justify-content: space-around;-->
+<!--    flex-wrap: wrap;-->
+<!--}-->
+
+<!--.skill-item {-->
+<!--    text-align: center;-->
+<!--    margin: 20px;-->
+<!--    width: 30%;-->
+<!--}-->
+
+<!--.skill-item h3 {-->
+<!--    font-size: 1.5rem;-->
+<!--    margin-bottom: 10px;-->
+<!--}-->
+
+<!--/* Projects Section */-->
+<!--#projects {-->
+<!--    background: #f9f9f9;-->
+<!--    padding: 50px 0;-->
+<!--    text-align: center;-->
+<!--}-->
+
+<!--.project-list {-->
+<!--    display: grid;-->
+<!--    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));-->
+<!--    gap: 20px;-->
+<!--}-->
+
+<!--.project-list .project-item {-->
+<!--    background: #fff;-->
+<!--    padding: 20px;-->
+<!--    border: 1px solid #ddd;-->
+<!--}-->
+
+<!--.project-list .project-item h4 {-->
+<!--    font-size: 1.4rem;-->
+<!--}-->
+
+<!--/* Contact Section */-->
+<!--#contact {-->
+<!--    background: #34495e;-->
+<!--    color: white;-->
+<!--    text-align: center;-->
+<!--    padding: 50px 0;-->
+<!--}-->
+
+<!--@media screen and (max-width: 768px) {-->
+<!--    header nav ul {-->
+<!--        flex-direction: column;-->
+<!--    }-->
+
+<!--    .skill-list, .project-list {-->
+<!--        flex-direction: column;-->
+<!--    }-->
+
+<!--    .skill-item, .project-item {-->
+<!--        width: 80%;-->
+<!--        margin: 10px auto;-->
+<!--    }-->
+<!--}-->
+
+
+<!--.contact-links a {-->
+<!--    color: white;-->
+<!--    margin: 0 10px;-->
+<!--    text-decoration: none;-->
+<!--}-->
+
+<!--.contact-links a:hover {-->
+<!--    color: #3498db;-->
+<!--}-->
+
+<!--/* Footer */-->
+<!--footer {-->
+<!--    background: #2c3e50;-->
+<!--    color: white;-->
+<!--    text-align: center;-->
+<!--    padding: 20px 0;-->
+<!--}-->
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <header>-->
+<!--        <div class="container">-->
+<!--            <nav>-->
+<!--                <ul>-->
+<!--                    <li><a href="#home">Home</a></li>-->
+<!--                    <li><a href="#about">About</a></li>-->
+<!--                    <li><a href="#skills">Skills</a></li>-->
+<!--                    <li><a href="#projects">Projects</a></li>-->
+<!--                    <li><a href="#contact">Contact</a></li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </header>-->
+
+<!--    <section id="home">-->
+<!--        <div class="container">-->
+<!--            <h1>Hi, I'm [Your Name]</h1>-->
+<!--            <p>A Python Developer | B.Sc. Computer Science | MCA</p>-->
+<!--            <button onclick="scrollToSection('about')">Learn More</button>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section id="about">-->
+<!--        <div class="container">-->
+<!--            <h2>About Me</h2>-->
+<!--            <p>I am a passionate Python developer with a B.Sc. in Computer Science and an MCA. I specialize in creating dynamic, scalable applications and have a deep understanding of Python and modern web technologies.</p>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section id="skills">-->
+<!--        <div class="container">-->
+<!--            <h2>Skills</h2>-->
+<!--            <div class="skill-list">-->
+<!--                <div class="skill-item">-->
+<!--                    <h3>Python</h3>-->
+<!--                    <p>Experienced in building web applications, automation scripts, data analysis, and machine learning.</p>-->
+<!--                </div>-->
+<!--                <div class="skill-item">-->
+<!--                    <h3>JavaScript</h3>-->
+<!--                    <p>Proficient in front-end frameworks such as React, and vanilla JavaScript for dynamic web development.</p>-->
+<!--                </div>-->
+<!--                <div class="skill-item">-->
+<!--                    <h3>Web Development</h3>-->
+<!--                    <p>Building responsive websites using HTML5, CSS3, and modern JS tools like React.js and Node.js.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section id="projects">-->
+<!--        <div class="container">-->
+<!--            <h2>Projects</h2>-->
+<!--            <div class="project-list">-->
+<!--                &lt;!&ndash; Add your projects dynamically with JS &ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section id="contact">-->
+<!--        <div class="container">-->
+<!--            <h2>Contact</h2>-->
+<!--            <p>Feel free to reach out to me through the following:</p>-->
+<!--            <div class="contact-links">-->
+<!--                <a href="mailto:your.email@example.com">Email</a>-->
+<!--                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>-->
+<!--                <a href="https://github.com/yourprofile" target="_blank">GitHub</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <footer>-->
+<!--        <p>&copy; 2025 [Your Name]. All Rights Reserved.</p>-->
+<!--    </footer>-->
+
+<!--    <script src="">-->
+<!--        // Scroll to Section-->
+<!--function scrollToSection(id) {-->
+<!--    const section = document.getElementById(id);-->
+<!--    window.scrollTo({-->
+<!--        top: section.offsetTop - 80, // Offset for fixed nav-->
+<!--        behavior: 'smooth'-->
+<!--    });-->
+<!--}-->
+
+<!--// Example dynamic project loading-->
+<!--const projects = [-->
+<!--    {-->
+<!--        title: 'Python Web Scraper',-->
+<!--        description: 'A Python script for scraping and storing data from websites.',-->
+<!--        link: 'https://github.com/yourprofile/web-scraper',-->
+<!--    },-->
+<!--    {-->
+<!--        title: 'Portfolio Website',-->
+<!--        description: 'A personal portfolio to showcase my work and skills.',-->
+<!--        link: 'https://github.com/yourprofile/portfolio',-->
+<!--    }-->
+<!--];-->
+
+<!--function loadProjects() {-->
+<!--    const projectList = document.querySelector('.project-list');-->
+<!--    projects.forEach(project => {-->
+<!--        const projectItem = document.createElement('div');-->
+<!--        projectItem.classList.add('project-item');-->
+<!--        projectItem.innerHTML = `-->
+<!--            <h4><a href="${project.link}" target="_blank">${project.title}</a></h4>-->
+<!--            <p>${project.description}</p>-->
+<!--        `;-->
+<!--        projectList.appendChild(projectItem);-->
+<!--    });-->
+<!--}-->
+
+<!--// Load projects on page load-->
+<!--document.addEventListener('DOMContentLoaded', loadProjects);-->
+
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Admin Dashboard</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--</head>-->
+<!--<body class="bg-gray-100 flex">-->
+<!--    &lt;!&ndash; Sidebar &ndash;&gt;-->
+<!--    <div id="sidebar" class="bg-gray-900 text-white w-64 space-y-6 py-7 px-2 h-screen fixed left-0 top-0 transform -translate-x-full md:translate-x-0 md:relative z-50 transition duration-200 ease-in-out">-->
+<!--        <h1 class="text-2xl font-semibold text-center">Admin Dashboard</h1>-->
+<!--        <nav>-->
+<!--            <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item">Dashboard</a>-->
+<!--            <a href="#2" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item">Users</a>-->
+<!--            <a href="#3" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item">Settings</a>-->
+<!--        </nav>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Main content wrapper &ndash;&gt;-->
+<!--    <div class="flex-1 flex flex-col transition-all duration-200 ease-in-out" id="main-content">-->
+<!--        &lt;!&ndash; Navbar &ndash;&gt;-->
+<!--        <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-40 w-full">-->
+<!--            <button id="menu-btn" class="text-gray-900 focus:outline-none">-->
+<!--                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">-->
+<!--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>-->
+<!--                </svg>-->
+<!--            </button>-->
+<!--            <h2 class="text-xl font-semibold">Dashboard</h2>-->
+<!--        </header>-->
+
+<!--        &lt;!&ndash; Scrollable Content &ndash;&gt;-->
+<!--        <main class="p-6 overflow-auto h-screen">-->
+<!--            <p>Welcome to the admin panel! Scroll down to see the effect.</p>-->
+<!--            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">-->
+<!--                <table class="w-full text-sm text-left text-gray-500">-->
+<!--                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">-->
+<!--                        <tr>-->
+<!--                            <th scope="col" class="px-6 py-3">Name</th>-->
+<!--                            <th scope="col" class="px-6 py-3">Contact</th>-->
+<!--                            <th scope="col" class="px-6 py-3">Education</th>-->
+<!--                            <th scope="col" class="px-6 py-3">Email</th>-->
+<!--                            <th scope="col" class="px-6 py-3">Address</th>-->
+<!--                            <th scope="col" class="px-6 py-3">Passout Year</th>-->
+<!--                            <th scope="col" class="px-6 py-3">Verified</th>-->
+<!--                        </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                        <tr class="bg-white border-b">-->
+<!--                            <td class="px-6 py-4 font-medium text-gray-900">John Doe</td>-->
+<!--                            <td class="px-6 py-4">+91 9876543210</td>-->
+<!--                            <td class="px-6 py-4">BSc Computer Science</td>-->
+<!--                            <td class="px-6 py-4">john@example.com</td>-->
+<!--                            <td class="px-6 py-4">New Delhi</td>-->
+<!--                            <td class="px-6 py-4">2022</td>-->
+<!--                            <td class="px-6 py-4 text-green-600">✔</td>-->
+<!--                        </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+<!--        </main>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        const sidebar = document.getElementById('sidebar');-->
+<!--        const menuBtn = document.getElementById('menu-btn');-->
+<!--        const menuItems = document.querySelectorAll('.menu-item');-->
+
+<!--        menuBtn.addEventListener('click', () => {-->
+<!--            sidebar.classList.toggle('-translate-x-full');-->
+<!--        });-->
+
+<!--        menuItems.forEach(item => {-->
+<!--            item.addEventListener('click', () => {-->
+<!--                if (window.innerWidth < 768) {-->
+<!--                    sidebar.classList.add('-translate-x-full');-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Technical and Hiring Assistance System</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--</head>-->
+<!--<body class="bg-gray-100">-->
+<!--    &lt;!&ndash; Navbar &ndash;&gt;-->
+<!--    <nav class="bg-gray-900 text-white p-4 shadow-md">-->
+<!--        <div class="container mx-auto flex justify-between items-center">-->
+<!--            <h1 class="text-2xl font-bold">THAS</h1>-->
+<!--            <ul class="hidden md:flex space-x-6">-->
+<!--                <li><a href="#home" class="hover:text-gray-400">Home</a></li>-->
+<!--                <li><a href="#about" class="hover:text-gray-400">About</a></li>-->
+<!--                <li><a href="#services" class="hover:text-gray-400">Services</a></li>-->
+<!--                <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>-->
+<!--                <li class="relative group">-->
+<!--                    <button class="hover:text-gray-400">Login</button>-->
+<!--                    <div class="absolute hidden group-hover:block bg-white text-gray-900 shadow-md mt-2 rounded-md w-40">-->
+<!--                        <a href="developer_login.html" class="block px-4 py-2 hover:bg-gray-200">Developer</a>-->
+<!--                        <a href="recruiter_login.html" class="block px-4 py-2 hover:bg-gray-200">Hiring Recruiter</a>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <button class="md:hidden text-white focus:outline-none" id="menu-btn">-->
+<!--                ☰-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+<!--    &lt;!&ndash; Hero Section &ndash;&gt;-->
+<!--    <section id="home" class=" py-20 text-center bg-gradient-to-r from-gray-900 to-gray-700 text-white">-->
+<!--        <h2 class="text-4xl font-bold">Welcome to Technical and Hiring Assistance System</h2>-->
+<!--        <p class="mt-4 text-lg">Connecting Developers with Hiring Recruiters Efficiently</p>-->
+<!--        <a href="#services" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded">Explore Services</a>-->
+<!--    </section>-->
+
+<!--    &lt;!&ndash; About Section &ndash;&gt;-->
+<!--    <section id="about" class="py-20 container mx-auto text-center">-->
+<!--        <h2 class="text-3xl font-semibold">About Us</h2>-->
+<!--        <p class="mt-4 text-gray-600">THAS is a platform where developers can showcase their skills and recruiters can find top talent efficiently.</p>-->
+<!--    </section>-->
+
+<!--    &lt;!&ndash; Services Section &ndash;&gt;-->
+<!--    <section id="services" class="bg-gray-200 py-20 text-center">-->
+<!--        <h2 class="text-3xl font-semibold">Our Services</h2>-->
+<!--        <div class="grid md:grid-cols-3 gap-6 mt-6 container mx-auto px-6">-->
+<!--            <div class="bg-white p-6 rounded shadow">-->
+<!--                <h3 class="text-xl font-bold">For Developers</h3>-->
+<!--                <p class="text-gray-600 mt-2">Find job opportunities that match your skills.</p>-->
+<!--            </div>-->
+<!--            <div class="bg-white p-6 rounded shadow">-->
+<!--                <h3 class="text-xl font-bold">For Recruiters</h3>-->
+<!--                <p class="text-gray-600 mt-2">Discover top talent efficiently.</p>-->
+<!--            </div>-->
+<!--            <div class="bg-white p-6 rounded shadow">-->
+<!--                <h3 class="text-xl font-bold">Skill Assessment</h3>-->
+<!--                <p class="text-gray-600 mt-2">Test and validate technical skills.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    &lt;!&ndash; Contact Section &ndash;&gt;-->
+<!--    <section id="contact" class="py-20 container mx-auto text-center">-->
+<!--        <h2 class="text-3xl font-semibold">Contact Us</h2>-->
+<!--        <p class="mt-4 text-gray-600">Have any questions? Reach out to us at <strong>support@thas.com</strong></p>-->
+<!--    </section>-->
+
+<!--    &lt;!&ndash; Footer &ndash;&gt;-->
+<!--    <footer class="bg-gray-900 text-white text-center py-4">-->
+<!--        &copy; 2025 Technical and Hiring Assistance System. All Rights Reserved.-->
+<!--    </footer>-->
+
+<!--    <script>-->
+<!--        document.getElementById('menu-btn').addEventListener('click', function() {-->
+<!--            const menu = document.querySelector('nav ul');-->
+<!--            menu.classList.toggle('hidden');-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Technical & Hiring Assistance System</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--    <style>-->
+<!--        html {-->
+<!--            scroll-behavior: smooth;-->
+<!--        }-->
+<!--        .fade-in {-->
+<!--            animation: fadeIn 1.5s ease-in-out;-->
+<!--        }-->
+<!--        @keyframes fadeIn {-->
+<!--            from { opacity: 0; }-->
+<!--            to { opacity: 1; }-->
+<!--        }-->
+<!--        .animate-slide {-->
+<!--            animation: slideIn 1.5s ease-in-out;-->
+<!--        }-->
+<!--        @keyframes slideIn {-->
+<!--            from { transform: translateY(20px); opacity: 0; }-->
+<!--            to { transform: translateY(0); opacity: 1; }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">-->
+<!--    <nav class="bg-gray-900 p-4 fixed w-full z-10 top-0 shadow-lg">-->
+<!--        <div class="container mx-auto flex justify-between items-center">-->
+<!--            <h1 class="text-2xl font-bold">Technical & Hiring Assistance</h1>-->
+<!--            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">-->
+<!--                ☰-->
+<!--            </button>-->
+<!--            <ul id="menu" class="hidden md:flex space-x-6 md:space-x-6 md:items-center w-full md:w-auto absolute md:relative top-full left-0 bg-gray-900 md:bg-transparent p-4 md:p-0 md:flex-row flex-col text-center md:text-left">-->
+<!--                <li><a href="#home" class="hover:text-yellow-400 block py-2">Home</a></li>-->
+<!--                <li><a href="#about" class="hover:text-yellow-400 block py-2">About</a></li>-->
+<!--                <li><a href="#services" class="hover:text-yellow-400 block py-2">Services</a></li>-->
+<!--                <li><a href="#contact" class="hover:text-yellow-400 block py-2">Contact</a></li>-->
+<!--                <li>-->
+<!--                    <div class="relative">-->
+<!--                        <button id="login-btn" class="bg-yellow-400 px-8 py-2 rounded">Login</button>-->
+<!--                        <div id="dropdown" class="w-48 absolute right-0 mt-2 bg-white text-black rounded shadow-lg hidden">-->
+<!--                            <a href="developerlogin" class="block px-4 py-2 hover:bg-gray-200">Developer</a>-->
+<!--                            <a href="hrlogin" class="block px-4 py-2 hover:bg-gray-200">Hiring Recruiter</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+
+<!--    <section id="home" class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('static/images/home-bg.jpg');">-->
+<!--        {% if messages %}-->
+<!--            <div id="alert-message" class="fixed top-14 right-5 bg-green-500 text-white p-5 rounded shadow-lg">-->
+<!--                {% for message in messages %}-->
+<!--                    <p>{{ message }}</p>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+
+<!--            <script>-->
+<!--                setTimeout(function() {-->
+<!--                    var alertBox = document.getElementById("alert-message");-->
+<!--                    if (alertBox) {-->
+<!--                        alertBox.style.display = "none";-->
+<!--                    }-->
+<!--                }, 3000);-->
+<!--            </script>-->
+<!--        {% endif %}-->
+
+<!--    </section>-->
+<!--    <section id="home" class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('static/images/home-bg.jpg');">-->
+<!--      {% if messages %}-->
+<!--            <div id="alert-message" class="fixed top-14 right-5 bg-green-500 text-white p-5 rounded shadow-lg">-->
+<!--              {% for message in messages %}-->
+<!--                <p>{{ message }}</p>-->
+<!--              {% endfor %}-->
+<!--            </div>-->
+
+<!--           <script>-->
+<!--             // Automatically hide the alert message after 3 seconds-->
+<!--             setTimeout(function() {-->
+<!--             var alertBox = document.getElementById("alert-message");-->
+<!--             if (alertBox) {-->
+<!--                alertBox.style.display = "none";-->
+<!--             }-->
+<!--            }, 3000);-->
+<!--           </script>-->
+<!--      {% endif %}-->
+
+<!--        <div class="text-center fade-in">-->
+<!--            <h2 class="text-5xl font-bold">Welcome to Technical & Hiring Assistance</h2>-->
+<!--            <p class="mt-4 text-lg">Your one-stop solution for recruitment & tech hiring.</p>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section id="about" class="py-16 bg-gray-800 animate-slide">-->
+<!--        <div class="container mx-auto text-center">-->
+<!--            <h2 class="text-4xl font-bold">About Us</h2>-->
+<!--            <p class="mt-4 max-w-2xl mx-auto">We bridge the gap between talented developers and top hiring recruiters through a seamless, AI-powered platform.</p>-->
+<!--            <p class="mt-4 max-w-3xl mx-auto">Our platform provides automated job matching, advanced candidate screening, and AI-driven analytics to make hiring effortless. Whether you're a recruiter looking for the perfect tech talent or a developer searching for your dream job, we've got you covered.</p>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section id="services" class="py-16 bg-gray-700 animate-slide">-->
+<!--        <div class="container mx-auto text-center">-->
+<!--            <h2 class="text-4xl font-bold">Our Services</h2>-->
+<!--            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">-->
+<!--                <div class="p-6 bg-gray-900 rounded shadow-lg hover:scale-105 transition">-->
+<!--                    <h3 class="text-2xl font-bold">Job Matching</h3>-->
+<!--                    <p>AI-driven job recommendations for developers.</p>-->
+<!--                </div>-->
+<!--                <div class="p-6 bg-gray-900 rounded shadow-lg hover:scale-105 transition">-->
+<!--                    <h3 class="text-2xl font-bold">Recruitment Solutions</h3>-->
+<!--                    <p>Find the best tech talent effortlessly.</p>-->
+<!--                </div>-->
+<!--                <div class="p-6 bg-gray-900 rounded shadow-lg hover:scale-105 transition">-->
+<!--                    <h3 class="text-2xl font-bold">Skill Assessments</h3>-->
+<!--                    <p>Test developer skills with customizable assessments.</p>-->
+<!--                </div>-->
+<!--                <div class="p-6 bg-gray-900 rounded shadow-lg hover:scale-105 transition">-->
+<!--                    <h3 class="text-2xl font-bold">Resume Analysis</h3>-->
+<!--                    <p>AI-powered resume screening for recruiters.</p>-->
+<!--                </div>-->
+<!--                <div class="p-6 bg-gray-900 rounded shadow-lg hover:scale-105 transition">-->
+<!--                    <h3 class="text-2xl font-bold">Tech Industry Insights</h3>-->
+<!--                    <p>Stay updated with the latest trends in hiring.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section id="contact" class="container mx-auto my-16 px-6"><br>-->
+<!--        <h2 class="text-3xl font-bold text-center text-gray-900">Contact Us</h2>-->
+<!--        <div class="grid md:grid-cols-2 gap-8 mt-8">-->
+<!--            &lt;!&ndash; Contact Form &ndash;&gt;-->
+<!--            <form class="bg-white p-6 shadow-lg rounded-lg">-->
+<!--                <label class="block text-gray-700 font-semibold mb-2">Name</label>-->
+<!--                <input type="text" class="w-full p-2 border rounded" placeholder="Your Name">-->
+
+<!--                <label class="block text-gray-700 font-semibold mt-4 mb-2">Email</label>-->
+<!--                <input type="email" class="w-full p-2 border rounded" placeholder="Your Email">-->
+
+<!--                <label class="block text-gray-700 font-semibold mt-4 mb-2">Message</label>-->
+<!--                <textarea class="w-full p-2 border rounded" rows="4" placeholder="Your Message"></textarea>-->
+
+<!--                <button class="mt-4 bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700">Send Message</button>-->
+<!--            </form>-->
+
+<!--            &lt;!&ndash; Contact Info &ndash;&gt;-->
+<!--            <div class="bg-gray-800 text-white p-6 rounded-lg">-->
+<!--                <h3 class="text-xl font-semibold">Get in Touch</h3>-->
+<!--                <p class="mt-2 text-gray-300">Have questions? Reach out to us.</p>-->
+<!--                <p class="mt-4"><i class="fas fa-phone"></i> +91 123 456 7890</p>-->
+<!--                <p class="mt-2"><i class="fas fa-envelope"></i> support@thasystem.com</p>-->
+<!--                <p class="mt-2"><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <footer class="bg-gray-900 py-6 text-center">-->
+<!--        <p>&copy; 2025 Technical & Hiring Assistance. All rights reserved.</p>-->
+<!--    </footer>-->
+
+
+<!--    <script>-->
+<!--        document.getElementById("menu-toggle").addEventListener("click", function() {-->
+<!--            document.getElementById("menu").classList.toggle("hidden");-->
+<!--        });-->
+<!--        document.getElementById("login-btn").addEventListener("click", function() {-->
+<!--            document.getElementById("dropdown").classList.toggle("hidden");-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Reset Password</title>-->
+
+<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
+
+<!--    <style>-->
+<!--        body {-->
+<!--            background: linear-gradient(135deg, #2c3e50, #4ca1af);-->
+<!--            height: 100vh;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--        }-->
+<!--        .reset-container {-->
+<!--            background: rgba(255, 255, 255, 0.95);-->
+<!--            padding: 25px;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);-->
+<!--            width: 100%;-->
+<!--            max-width: 400px;-->
+<!--        }-->
+<!--        .input-group-text {-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <div class="reset-container">-->
+<!--        <h3 class="text-center mb-4">Reset Password</h3>-->
+<!--        <form>-->
+<!--            <div class="mb-3">-->
+<!--                <label class="form-label">New Password</label>-->
+<!--                <div class="input-group">-->
+<!--                    <input type="password" id="newPassword" class="form-control" placeholder="Enter new password" required>-->
+<!--                    <span class="input-group-text" onclick="togglePassword('newPassword', 'toggleNewPass')">-->
+<!--                        <i id="toggleNewPass" class="fa fa-eye"></i>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <small id="passwordError" class="text-danger"></small>-->
+<!--            </div>-->
+
+<!--            <div class="mb-3">-->
+<!--                <label class="form-label">Confirm Password</label>-->
+<!--                <div class="input-group">-->
+<!--                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm new password" required>-->
+<!--                    <span class="input-group-text" onclick="togglePassword('confirmPassword', 'toggleConfirmPass')">-->
+<!--                        <i id="toggleConfirmPass" class="fa fa-eye"></i>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <small id="confirmError" class="text-danger"></small>-->
+<!--            </div>-->
+
+<!--            <button type="submit" class="btn btn-success w-100">Reset Password</button>-->
+<!--        </form>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        // Toggle password visibility-->
+<!--        function togglePassword(fieldId, iconId) {-->
+<!--            let passwordField = document.getElementById(fieldId);-->
+<!--            let icon = document.getElementById(iconId);-->
+<!--            if (passwordField.type === "password") {-->
+<!--                passwordField.type = "text";-->
+<!--                icon.classList.remove("fa-eye");-->
+<!--                icon.classList.add("fa-eye-slash");-->
+<!--            } else {-->
+<!--                passwordField.type = "password";-->
+<!--                icon.classList.remove("fa-eye-slash");-->
+<!--                icon.classList.add("fa-eye");-->
+<!--            }-->
+<!--        }-->
+
+<!--        // Password Validation and Match Check-->
+<!--        document.getElementById('newPassword').addEventListener('input', function () {-->
+<!--            const passwordError = document.getElementById('passwordError');-->
+<!--            this.value.length >= 8-->
+<!--                ? passwordError.textContent = ''-->
+<!--                : passwordError.textContent = 'Password must be at least 8 characters long.';-->
+<!--        });-->
+
+<!--        document.getElementById('confirmPassword').addEventListener('input', function () {-->
+<!--            const confirmError = document.getElementById('confirmError');-->
+<!--            this.value === document.getElementById('newPassword').value-->
+<!--                ? confirmError.textContent = ''-->
+<!--                : confirmError.textContent = 'Passwords do not match.';-->
+<!--        });-->
+<!--    </script>-->
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Developer Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* Background Color with gradient */
+        body {
+            background-color:#1c6892;
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            color: #fff;
+        }
+
+        /* Navbar Styling */
+      /* Navbar Styling */
+.navbar {
+    margin-bottom: 30px;
+}
+
+.navbar-inverse {
+    background-color: #232323;
+    border-color: #080808;
+}
+
+.navbar-brand {
+    font-size: 22px;
+}
+
+/* Navigation menu links */
+.navbar-nav .nav-item .nav-link {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Hover effect */
+.navbar-nav .nav-item .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1dfcfd; /* Color of the underline */
+}
+
+/* Active link with underline */
+.navbar-nav .nav-item.active .nav-link {
+    color: #1dfcfd; /* Color of the active link text */
+}
+
+.navbar-nav .nav-item.active .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1dfcfd; /* Color of the underline when active */
+}
+
+      .navbar {
+            margin-bottom: 30px;
+        }
+
+        .navbar-inverse {
+            background-color: #232323;
+            border-color: #080808;
+        }
+
+        .navbar-brand {
+            font-size: 22px;
+        }
+
+        /* Container for Main Content */
+        .container-main {
+            margin-top: 50px;
+        }
+
+        /* Card Styling */
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 1, 0, 0.1);
+            border: 2px solid #09334b;
+        }
+
+        #cb1, #cb2 {
+            padding: 20px;
+        }
+
+        /* Cards - Light background */
+        #card1 {
+            background-color: #09334b;
+            color: #343a40;
+        }
+
+        /* Cards - Dark background */
+        #card2 {
+            background-color: #06313d;
+            color: #fff;
+            width:490px;
+        }
+
+        /* Buttons with rounded edges */
+        .btn-warning, .btn-danger, .btn-primary {
+            border-radius: 50px;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+
+        /* Warning Button */
+        .btn-warning {
+            background-color: #ffbb33;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            background-color: #282828;
+            color: #fff;
+        }
+
+        .modal-header, .modal-footer {
+            background-color: #444;
+        }
+
+        /* Form and Input Fields */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        marquee {
+            color: #1dfcfd;
+            font-size: 18px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 767px) {
+            .navbar-brand {
+                font-size: 18px;
+            }
+
+            .container-main {
+                margin-top: 20px;
+            }
+
+            #card1, #card2 {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Technical and Hiring Assistance System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="ddashboard"><i class="fa fa-bank"></i>&nbsp Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="certificate"><i class="fa fa-certificate"></i>&nbsp Get Certificate</a></li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="profile"><button type="button" class="btn btn-warning btn-lg" data-toggle="" data-target=""
+                                style="margin-top:5px; border-radius:50px; font-size:20px;">
+                            {% for i in data %}
+                            <i class="fa fa-user-circle-o">&nbsp{{ i.fname }}</i>
+                            {% endfor %}
+                        </button></a>&nbsp
+                    </li>
+                    <li class="nav-item">
+                        <a href="dlogout" class="nav-link">
+                            <i class="fa fa-share-square-o"></i> LogOut
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">My Profile</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    {% for i in data %}
+                        <h5>Name: {{ i.fname }}</h5>
+                        <h5>Email: {{ i.email }}</h5>
+                        <h5>Education: {{ i.education }}</h5>
+                        <h5>Contact: {{ i.contact }}</h5>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'msg.html' %}
+
+    <div class="container-main">
+        <center><h1 style="color:#fff;">Welcome To Technical and Hiring Assistance System</h1></center><br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-10">
+                        <div class="card" id="card1">
+                            <div class="card-body" id="cb1">
+                                <p style="font-size:20px">In today's IT-driven world, industries constantly seek skilled, passionate, and domain-oriented developers. To remain competitive, developers must continuously assess and enhance their skills. CodeRivals provides a platform for self-assessment, certification, and direct interaction with HR professionals, increasing developers' chances of getting hired in top IT firms.
+                                 We are providing the following domain quiz:
+                                    <ol style="font-size:18px">
+                                        {% for i in data1 %}
+                                            <li value="{{i.Domain}}">{{ i.category }}</li>
+                                        {% endfor %}
+                                    </ol>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="color:white;">
+                <center>
+                    <h3>Select Your Domain To Start The Quiz Test</h3>
+                    <caption>
+                        <marquee behavior="" direction="left" width="400px">(Use your registration information to fill the test form.. <u><b>Give the Test to appear in Hiring Recruiter Search...</b></u>)</marquee></caption>
+                </center>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-9" id="form">
+                        {% for i in data %}
+                        <form action="quiz" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="card" id="card2">
+                                <div class="card-body" id="cb2">
+                                    <h2><center><u style="color:#1dfcfd;" id="rf">Domain Selection Form</u></center></h2>
+                                    <div class="form-group mt-4">
+                                        <label for="InputName">Full Name</label>
+                                        <input type="text" class="form-control" id="InputName" placeholder="First Name" name="name" required value="{{ i.fname }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="InputCno">Contact Number</label>
+                                        <input type="number" class="form-control" id="InputCno" placeholder="Contact No" name="contact" required value="{{ i.contact }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="InputEmail">Email</label>
+                                        <input type="email" class="form-control" id="InputEmail" placeholder="Email" name="email" required value="{{ i.email }}">
+                                    </div>
+                                    <br>
+
+                                    <div class="mb-3">
+                                        <label>Quiz Domain</label>
+                                        <div>
+                                            <input type="radio" id="python" name="quizDomain" value="Python">
+                                            <label for="python">Adv Python</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="java" name="quizDomain" value="Java">
+                                            <label for="java">Java</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="php" name="quizDomain" value="Php">
+                                            <label for="php">PHP</label>
+                                        </div>
+                                        <div class="form-group">
+                                    <input type="file" name="resume" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" style="color:#1dfcfd; background-color:#09334b;">Submit Form</button>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                      </form>
+                    {% endfor %}
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

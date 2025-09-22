@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATS Resume Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">ATS Resume Analyzer</h1>
+        <form method="POST" enctype="multipart/form-data" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label class="block font-semibold mb-1">Upload Resume (PDF/DOCX)</label>
+                <input type="file" name="resume" required class="w-full border border-gray-300 rounded px-3 py-2">
+            </div>
+            <div>
+                <label class="block font-semibold mb-1">Job Role</label>
+                <input type="text" name="job_role" required class="w-full border border-gray-300 rounded px-3 py-2">
+            </div>
+            <div>
+                <label class="block font-semibold mb-1">Job Description</label>
+                <textarea name="job_description" rows="5" required class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+            </div>
+            <div class="flex justify-between items-center">
+                <button type="submit" class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700">Analyze</button>
+                <a href="/ddashboard" class="text-blue-600 hover:text-blue-800 underline">Go Back</a>
+            </div>
+        </form>
+
+        {% if result %}
+            <div class="mt-6 bg-green-50 border-l-4 border-green-500 text-green-700 p-4">
+                <h2 class="text-xl font-semibold mb-2">Analysis Result</h2>
+                <p><strong>Job Role:</strong> {{ result.job_role }}</p>
+                <p><strong>Match Score:</strong> {{ result.similarity }}%</p>
+                <p><strong>Status:</strong> {{ result.match_status }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

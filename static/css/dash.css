@@ -1,0 +1,55 @@
+body{
+background:url("/static/images/tahas.png");
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+.navbar-brand{
+background: -webkit-linear-gradient(#2dfcfd,#20608a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#rf {
+  text-decoration: underline;
+  animation: rf 5s infinite;
+}
+@keyframes rf {
+  50% {
+    text-decoration-color: red;
+  }
+}
+
+#card1{
+margin-top:10%;
+background-color:transprent;
+border-radius:10px;
+border:2px solid #14eae4;
+}
+
+#cb1{
+color:white;
+backdrop-filter:blur(5px);
+}
+
+
+#card2{
+background-color:transprent;
+border-radius:10px;
+border:2px solid #14eae4;
+animation: border 5s infinite;
+}
+@keyframes border {
+  30% {border-color: #fdb12d;};
+  60% {border-color: #20608a;};
+}
+
+#cb2{
+padding:5%;
+backdrop-filter:blur(5px);
+}
+
+
+.btn{
+margin-left:100px;
+}

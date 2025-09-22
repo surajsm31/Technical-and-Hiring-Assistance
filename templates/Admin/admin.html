@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="bg-gray-100 flex">
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-gray-900 text-white w-64 space-y-6 py-7 px-2 h-screen fixed left-0 top-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out z-50 overflow-y-auto">
+        <h1 class="text-2xl font-semibold text-center">Admin Dashboard</h1>
+      <header class="text-center text-gray-400 text-sm py-1 border-b border-gray-700">
+        <div class="flex items-center justify-center bg-gray-800 rounded">
+            <a href="admin_profile"><button id="profile-btn" class="flex  items-center space-x-2 w-full hover:bg-gray-700 p-2 rounded transition">
+             <i class="fa fa-user-circle text-lg"></i>
+            <span>{{ admin }}</span>
+            </button></a>
+        </div>
+      </header>
+        <nav>
+            <a href="Admin1" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-dashboard"></i>&nbsp Dashboard</a>
+<!--            <a href="#2" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-users"></i>&nbsp Developers</a>-->
+             <div class="relative">
+                <button id="user-dropdown-btn" class="block w-full text-left py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item1"><i class="fa fa-users"></i>&nbsp Developers &nbsp<i class="fa fa-chevron-down"></i></button>
+                <div id="user-dropdown" class="hidden bg-gray-800 rounded-md mt-1 space-y-2 py-2">
+                    <a href="dev" class="block py-2 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-list"></i>&nbsp Developer List</a>
+                    <a href="dev_test" class="block py-2 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-file-text-o"></i>&nbsp Developer Test Data</a>
+                </div>
+            </div>
+            <a href="hr" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-users"></i>&nbsp Hiring Recruiters</a>
+            <a href="test" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-server"></i>&nbsp Test Questions</a>
+            <a href="test_cate" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-sliders"></i>&nbsp Test Category</a>
+            <a href="/" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-wpexplorer"></i>&nbsp Visit Site</a>
+            <a href="feedback" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-comments-o"></i>&nbsp Feedbacks</a>
+            <a href="admin_logout" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 menu-item"><i class="fa fa-share-square-o"></i>&nbsp Logout</a>
+        </nav>
+        <footer class="text-center text-gray-400 text-sm py-4 border-t border-gray-700">
+            &copy; 2025 Technical and Hiring Assistance System
+        </footer>
+    </div>
+
+    <!-- Main content wrapper -->
+    <div class="flex-1 flex flex-col ml-0 md:ml-64 transition-all duration-200 ease-in-out" id="main-content">
+        <!-- Navbar -->
+        <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-40">
+            <button id="menu-btn" class="text-gray-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <h2 class="text-xl font-semibold">Technical And Hiring Assistance System</h2>
+        </header>
+
+        <!-- Scrollable Content -->
+        <main class="p-6 overflow-auto h-screen">
+          {% if messages %}
+            <div id="alert-message" class="fixed top-12 right-5 bg-green-500 text-white p-5 rounded shadow-lg">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+
+           <script>
+             // Automatically hide the alert message after 3 seconds
+             setTimeout(function() {
+             var alertBox = document.getElementById("alert-message");
+             if (alertBox) {
+                alertBox.style.display = "none";
+             }
+            }, 3000);
+           </script>
+         {% endif %}
+
+<!--            <p>Welcome to the admin panel!.</p>-->
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg"><br>
+                <div class="grid grid-flow-col grid-rows-1 ">
+                  <a href="dev" class="ml-14  block w-96 p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center content-center">  Developers <br>{{ data1 }}</h5>
+                  </a>
+
+                  <a href="hr" class=" block w-96 p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><center><pre> Hiring Recruiters <br>{{ data2 }}</pre></center></h5>
+                  </a>
+                </div>
+                <br>
+                <div class="grid grid-flow-col grid-rows-1 gap-">
+                  <a href="test" class="ml-14 block w-96 p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center content-center"> Test Questions <br>{{ data3 }}</h5>
+                  </a>
+
+                  <a href="test_cate" class=" block w-96 p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><center><pre> Test Category <br>{{ data4 }}</pre></center></h5>
+                  </a>
+                </div>
+                <br>
+            </div>
+            <br>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class=" w-full text-sm text-left text-gray-500">
+                    <caption class="p-3 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                       Developer Test Info
+                    </caption>
+                    <thead class="text-xs text-gray-700  uppercase bg-gray-400">
+                        <tr>
+                            <th scope="col" class="px-3 py-3">Sr.No</th>
+                            <th scope="col" class="px-6 py-3">Name</th>
+                            <th scope="col" class="px-6 py-3">Email</th>
+                            <th scope="col" class="px-6 py-3">Contact</th>
+                            <th scope="col" class="px-6 py-3">Domain</th>
+                            <th scope="col" class="px-4 py-3">Resume</th>
+                            <th scope="col" class="px-4 py-3">Assessment Result</th>
+                            <th scope="col" class="px-4 py-3">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                        <tr class="bg-white border-b">
+                            <td class="px-3 py-3">{{ forloop.counter }}</td>
+                            <td class="px-6 py-3 font-medium text-gray-900">{{ i.name }}</td>
+                            <td class="px-6 py-3">{{ i.email }}</td>
+                            <td class="px-6 py-3">{{ i.contact }}</td>
+                            <td class="px-6 py-3">{{ i.domain }}</td>
+                            <td class="px-4 py-3"><a href="media/{{ i.resume }}">Resume</a></td>
+                            <td class="px-4 py-3">{{ i.mark }}</td>
+                            <td class="px-4 py-3 text-green-600">{{ i.date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const menuBtn = document.getElementById('menu-btn');
+        const mainContent = document.getElementById('main-content');
+        const menuItems = document.querySelectorAll('.menu-item');
+         const userDropdownBtn = document.getElementById('user-dropdown-btn');
+        const userDropdown = document.getElementById('user-dropdown');
+
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                mainContent.classList.remove('ml-64');
+                mainContent.classList.add('ml-0');
+            } else {
+                mainContent.classList.remove('ml-0');
+                mainContent.classList.add('ml-64');
+            }
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-x-full');
+                    mainContent.classList.remove('ml-64');
+                    mainContent.classList.add('ml-0');
+                }
+            });
+        });
+
+        userDropdownBtn.addEventListener('click', () => {
+            userDropdown.classList.toggle('hidden');
+        });
+
+</script>
+</body>
+</html>

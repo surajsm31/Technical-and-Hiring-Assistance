@@ -1,0 +1,470 @@
+<!--{% load static %}-->
+
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Developer Dashboard</title>-->
+<!--    <link rel="stylesheet" href="{% static 'css/dash.css' %}" type="text/css">-->
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar navbar-inverse">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="navbar-header">-->
+<!--      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
+<!--        <span class="icon-bar"></span>-->
+<!--        <span class="icon-bar"></span>-->
+<!--        <span class="icon-bar"></span>-->
+<!--      </button>-->
+<!--      <a class="navbar-brand" href="/">Technical and Hiring Assistance System</a>-->
+<!--    </div>-->
+<!--    <div class="collapse navbar-collapse" id="myNavbar">-->
+<!--      <ul class="nav navbar-nav navbar-center">-->
+<!--        <li class="active"><a href="ddashboard">Home</a></li>-->
+<!--        <li class="active"><a href="">About Us</a></li>-->
+<!--        <li class="active"><a href="">Contact Us</a></li>-->
+<!--        <li class="active"><a href="">Get Certificate</a></li>-->
+<!--      </ul>-->
+
+<!--        <ul class="nav navbar-nav navbar-right">-->
+<!--            <button type="button" class="fa fa-user-circle-o btn-warning btn-lg" data-toggle="modal" data-target="#myModal" style="margin-top:5px;border-radius:50px;font-size:20px"></button>-->
+
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal fade" id="myModal" role="dialog">-->
+<!--                <div class="modal-dialog">-->
+
+<!--                    &lt;!&ndash; Modal content&ndash;&gt;-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                            <h4 class="modal-title">My Profile</h4>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body">-->
+<!--                            <p>{% for i in data %}-->
+<!--                                 <h5>Name: {{ i.fname }}</h5>-->
+<!--                                 <h5>Email: {{ i.email }}</h5>-->
+<!--                                 <h5>Educaiton: {{ i.education }}</h5>-->
+<!--                                 <h5>Contact: {{ i.contact }}</h5>-->
+<!--&lt;!&ndash;                            <a href="media/{{ i.resume }}"> Resume</a>&ndash;&gt;-->
+<!--                                {% endfor %}-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <li><a href="dlogout" class="glyphicon glyphicon-log-out"> LogOut</a></li>-->
+<!--        </ul>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<!--{% include 'msg.html' %}-->
+
+<!--<div class="container-main">-->
+<!--   <center> <h1 style="color:red;">Welcome To, Technical And Hirring Assistance System</h1></center><br>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <div class="row">-->
+<!--                <div class="col-sm-1"></div>-->
+<!--                <div class="col-md-10">-->
+<!--                    <div class="card" id="card1">-->
+<!--                        <div class="card-body" id="cb1">-->
+<!--                            <p style="font-size:25px">We are providing some quiz test to increase your practise.-->
+<!--The quiz questions contains the basic of your selected domain.-->
+<!-- We are providing the following domain quiz-->
+<!--                                <ol style="font-size:18px">-->
+<!--                                    <li>Python</li><br>-->
+<!--                                    <li>Java</li><br>-->
+<!--                                    <li>PHP</li><br>-->
+<!--                                    <li>Angular</li><br>-->
+<!--                                    <li>C++</li><br>-->
+<!--                                    <li>AWS Cloud</li><br>-->
+<!--                                </ol>-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-1"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="col-md-6" style="color:white;">-->
+<!--            <center>-->
+<!--                <h3> Select Your Domain To Start The Quiz Test </h3>-->
+<!--                <caption>-->
+<!--                    <marquee behavior="" direction="left" width="400px">(Use your registration information to fill the test form)</marquee></caption>-->
+<!--            </center>-->
+<!--            <br>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-sm-2"></div>-->
+<!--                        <div class="col-md-8" id="form">-->
+<!--                            {% for i in data %}-->
+<!--                             <form action="quiz" method="post" enctype="multipart/form-data">-->
+<!--                                 {% csrf_token %}-->
+<!--                                 <div class="card" id="card2">-->
+<!--                                     <div class="card-body" id="cb2">-->
+<!--                                         <h2><center><u style="color:#1dfcfd;" id="rf"> Domain Selection Form </u></center></h2>-->
+<!--                                         <div class="form-group mt-4">-->
+<!--                                             <label for="InputName">Full Name</label>-->
+<!--                                             <input type="text" class="form-control" id="InputName" placeholder="First Name" name="name" required value="{{ i.fname }}">-->
+<!--                                         </div>-->
+<!--                                         <div class="form-group">-->
+<!--                                             <label for="InputCno">Contact Number</label>-->
+<!--                                             <input type="number" class="form-control" id="InputCno" placeholder="Contact No" name="contact" required value="{{ i.contact }}">-->
+<!--                                         </div>-->
+
+<!--                                         <div class="form-group">-->
+<!--                                             <label for="InputEmail">Email</label>-->
+<!--                                             <input type="email" class="form-control" id="InputEmail" placeholder="Email" name="email" required value="{{ i.email }}">-->
+<!--                                         </div>-->
+<!--                                         <br>-->
+
+<!--                                         <div class="mb-3">-->
+<!--                                             <label>Quiz Domain</label>-->
+<!--                                             <div>-->
+<!--                                                 <input type="radio" id="python" name="quizDomain" value="Python">-->
+<!--                                                 <label for="python">Adv Python</label>-->
+<!--                                             </div>-->
+<!--                                             <div>-->
+<!--                                                 <input type="radio" id="java" name="quizDomain" value="Java">-->
+<!--                                                 <label for="java">Java</label>-->
+<!--                                             </div>-->
+<!--                                             <div>-->
+<!--                                                 <input type="radio" id="php" name="quizDomain" value="Php">-->
+<!--                                                 <label for="php">PHP</label>-->
+<!--                                             </div>-->
+<!--                                             <div>-->
+<!--                                                 <input type="radio" id="angularJs" name="quizDomain" value="Angularjs">-->
+<!--                                                 <label for="angularJs">AngularJs</label>-->
+<!--                                             </div>-->
+<!--                                             <div>-->
+<!--                                                 <input type="radio" id="cPlusPlus" name="quizDomain" value="C++">-->
+<!--                                                 <label for="cPlusPlus">C++</label>-->
+<!--                                             </div>-->
+<!--                                             <div>-->
+<!--                                                 <input type="radio" id="awsCloud" name="quizDomain" value="Aws cloud">-->
+<!--                                                 <label for="awsCloud">AWS Cloud</label>-->
+<!--                                             </div>-->
+<!--                                             <br>-->
+
+<!--                                             <div class="form-group">-->
+<!--                                                 <label for="InputFile">Resume Upload</label>-->
+<!--                                                 <input type="file" class="form-control" id="InputFile" placeholder="Upload your Resume here" name="resume">-->
+<!--                                             </div><br>-->
+<!--                                             <center>-->
+<!--                                                 <button type="submit" class="btn btn-primary">Register</button>-->
+<!--                                                 <button type="reset" class="btn btn-danger">Reset</button>-->
+<!--                                             </center>-->
+<!--                                         </div>-->
+<!--                                     </div>-->
+<!--                                 </div>-->
+<!--                             </form>-->
+<!--                            {% endfor %}-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-2"></div>-->
+<!--                    </div>-->
+<!--           </div>-->
+<!--       </div>-->
+<!--</div>-->
+
+
+
+<!--<script>-->
+<!--          setTimeout(function()-->
+<!--          {-->
+<!--            if($("#msg").length > 0)-->
+<!--             {-->
+<!--                $("#msg").remove();-->
+<!--             }-->
+<!--          },3000);-->
+<!--</script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Developer Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* Background Color with gradient */
+        body {
+            background-color:#1c6892;
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            color: #fff;
+        }
+
+        /* Animating Gradient */
+        /* @keyframes gradient-animation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+ */
+        /* Navbar Styling */
+        .navbar {
+            margin-bottom: 30px;
+        }
+
+        .navbar-inverse {
+            background-color: #232323;
+            border-color: #080808;
+        }
+
+        .navbar-brand {
+            font-size: 22px;
+        }
+
+        /* Container for Main Content */
+        .container-main {
+            margin-top: 50px;
+        }
+
+        /* Card Styling */
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 1, 0, 0.1);
+            border: 2px solid #09334b;
+        }
+
+        #cb1, #cb2 {
+            padding: 20px;
+        }
+
+        /* Cards - Light background */
+        #card1 {
+            background-color: #09334b;
+            color: #343a40;
+        }
+
+        /* Cards - Dark background */
+        #card2 {
+            background-color: #06313d;
+            color: #fff;
+            width:490px;
+        }
+
+        /* Buttons with rounded edges */
+        .btn-warning, .btn-danger, .btn-primary {
+            border-radius: 50px;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+
+        /* Warning Button */
+        .btn-warning {
+            background-color: #ffbb33;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            background-color: #282828;
+            color: #fff;
+        }
+
+        .modal-header, .modal-footer {
+            background-color: #444;
+        }
+
+        /* Form and Input Fields */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        marquee {
+            color: #1dfcfd;
+            font-size: 18px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 767px) {
+            .navbar-brand {
+                font-size: 18px;
+            }
+
+            .container-main {
+                margin-top: 20px;
+            }
+
+            #card1, #card2 {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Technical and Hiring Assistance System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="ddashboard"><i class="fa fa-bank"></i>&nbsp Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="analyze"><i class="fa fa-check"></i>&nbsp ATS Score</a></li>
+                <li class="nav-item active"><a class="nav-link" href="certificate"><i class="fa fa-certificate"></i>&nbsp Get Certificate</a></li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="profile"><button type="button" class="btn btn-warning btn-lg" data-toggle="" data-target=""
+                            style="margin-top:5px; border-radius:50px; font-size:20px;">
+                        {% for i in data %}
+                        <i class="fa fa-user-circle-o">&nbsp{{ i.fname }}</i>
+                        {% endfor %}
+                    </button></a>&nbsp
+                </li>
+                <li class="nav-item">
+                    <a href="dlogout" class="nav-link">
+                        <i class="fa fa-share-square-o"></i> LogOut
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">My Profile</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                {% for i in data %}
+                    <h5>Name: {{ i.fname }}</h5>
+                    <h5>Email: {{ i.email }}</h5>
+                    <h5>Education: {{ i.education }}</h5>
+                    <h5>Contact: {{ i.contact }}</h5>
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% include 'msg.html' %}
+
+    <div class="container-main">
+        <center><h1 style="color:#fff;">Welcome To Technical and Hiring Assistance System</h1></center><br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-10">
+                        <div class="card" id="card1">
+                            <div class="card-body" id="cb1">
+                                <p style="font-size:20px">In today's IT-driven world, industries constantly seek skilled, passionate, and domain-oriented developers. To remain competitive, developers must continuously assess and enhance their skills. CodeRivals provides a platform for self-assessment, certification, and direct interaction with HR professionals, increasing developers' chances of getting hired in top IT firms.
+ We are providing the following domain quiz:
+                                    <ol style="font-size:18px">
+                                        {% for i in data1 %}
+                                            <li value="{{i.Domain}}">{{ i.category }}</li>
+                                        {% endfor %}
+                                    </ol>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="color:white;">
+                <center>
+                    <h3>Select Your Domain To Start The Quiz Test</h3>
+                    <caption>
+                        <marquee behavior="" direction="left" width="400px">(Use your registration information to fill the test form.. <u><b>Give the Test to appear in Hiring Recruiter Search...</b></u>)</marquee></caption>
+                </center>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-9" id="form">
+                        {% for i in data %}
+                        <form action="quiz" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="card" id="card2">
+                                <div class="card-body" id="cb2">
+                                    <h2><center><u style="color:#1dfcfd;" id="rf">Domain Selection Form</u></center></h2>
+                                    <div class="form-group mt-4">
+                                        <label for="InputName">Full Name</label>
+                                        <input type="text" class="form-control" id="InputName" placeholder="First Name" name="name" required value="{{ i.fname }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="InputCno">Contact Number</label>
+                                        <input type="number" class="form-control" id="InputCno" placeholder="Contact No" name="contact" required value="{{ i.contact }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="InputEmail">Email</label>
+                                        <input type="email" class="form-control" id="InputEmail" placeholder="Email" name="email" required value="{{ i.email }}" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="quizDomain">Quiz Domain</label>
+                                        <select class="form-control" id="quizDomain" name="quizDomain" required>
+                                            {% for i in data1 %}
+                                            <option value="{{i.Domain}}">{{ i.category }}</option>
+                                            {% endfor %}
+<!--                                            <option value="Java">Java</option>-->
+<!--                                            <option value="Php">PHP</option>-->
+<!--                                            <option value="Angularjs">AngularJS</option>-->
+<!--                                            <option value="C++">C++</option>-->
+<!--                                            <option value="Aws Cloud">AWS Cloud</option>-->
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="InputFile">Resume Upload</label>
+                                        <input type="file" class="form-control" id="InputFile" placeholder="Upload your Resume here" name="resume">
+                                    </div><br>
+                                    <center>
+                                        <button type="submit" class="btn btn-primary">Give Test</button>
+                                        <button type="reset" class="btn btn-danger">Reset</button>
+                                    </center>
+                                </div>
+                            </div>
+                        </form>
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            if ($("#msg").length > 0) {
+                $("#msg").remove();
+            }
+        }, 3000);
+    </script>
+
+</body>
+</html>

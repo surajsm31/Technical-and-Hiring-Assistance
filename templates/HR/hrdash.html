@@ -1,0 +1,377 @@
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>HR Dashboard</title>-->
+<!--    <meta http-equiv="refresh" content=""/>-->
+<!--        <link rel="stylesheet" href="{% static 'css/hrdash.css' %}" type="text/css">-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<!--    <style>-->
+<!--        /* Navbar Styling */-->
+<!--        .navbar {-->
+<!--            margin-bottom: 30px;-->
+<!--        }-->
+
+<!--        .navbar-inverse {-->
+<!--            background-color: #232323;-->
+<!--            border-color: #080808;-->
+<!--        }-->
+
+<!--        .navbar-brand {-->
+<!--            font-size: 22px;-->
+<!--        }-->
+<!--        body {-->
+<!--        background-color: #1e1e1e; /* Or any dark color you want */-->
+<!--        color: white;-->
+<!--    }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--    <div class="container-fluid">-->
+<!--        <a class="navbar-brand" href="/">Technical and Hiring Assistance System</a>-->
+<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+
+<!--        <div class="collapse navbar-collapse" id="myNavbar">-->
+<!--            <ul class="navbar-nav mr-auto">-->
+<!--                <li class="nav-item active"><a class="nav-link" href="hrdashboard"><i class="fa fa-bank"></i>&nbsp Home</a></li>-->
+<!--            </ul>-->
+
+<!--            <ul class="navbar-nav">-->
+<!--                <li class="nav-item">-->
+<!--                    <a href="hr_profile"><button type="button" class="btn btn-warning btn-lg" data-toggle="" data-target=""-->
+<!--                            style="margin-top:5px; border-radius:50px; font-size:20px;">-->
+<!--                        {% for i in data %}-->
+<!--                        <i class="fa fa-user-circle-o">&nbsp{{ i.Name }}</i>-->
+<!--                        {% endfor %}-->
+<!--                    </button></a>&nbsp-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a href="hrlogout" class="nav-link">-->
+<!--                        <i class="fa fa-share-square-o"></i> LogOut-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h4 class="modal-title">My Profile</h4>-->
+<!--                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                {% for i in data %}-->
+<!--                    <h5>Name: {{ i.Name }}</h5>-->
+<!--                    <h5>Email: {{ i.Email }}</h5>-->
+<!--                    <h5>Company: {{ i.Company }}</h5>-->
+<!--                    <h5>Contact: {{ i.Contact }}</h5>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--{% include 'msg.html' %}-->
+
+<!--<div class="container" style="color:#45befc;">-->
+<!--    <br>-->
+<!--    <center>-->
+<!--        <form action="search" method="post" id="form">-->
+<!--            {% csrf_token %}-->
+<!--            <label for="search">Search:</label><br>-->
+<!--            <input type="search" id="search" name="search" placeholder="Search by Domain Name...">-->
+<!--            <input type="submit" class="btn btn-primary">-->
+<!--        </form>-->
+<!--    </center>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<div class="container-fluid mt-5">-->
+<!--    <table border="1" class="table table-dark" id="data-table" style="color:snow;">-->
+<!--              <tr>-->
+<!--                  <th>ID</th>-->
+<!--                  <th>Name</th>-->
+<!--                  <th>Email</th>-->
+<!--                  <th>Contact</th>-->
+<!--                  <th>Domain</th>-->
+<!--                  <th>Resume</th>-->
+<!--                  <th>Github</th>-->
+<!--                  <th>Experience</th>-->
+<!--                  <th>Thas Test Remark</th>-->
+<!--                  <th>Thas Test Date</th>-->
+<!--                  <th>View Profile</th>-->
+<!--              </tr>-->
+<!--              {% for i,j in combined_data %}-->
+<!--              <tr>-->
+<!--&lt;!&ndash;                  <td>{{i.id}}</td>&ndash;&gt;-->
+<!--                  <td>{{ forloop.counter }}</td>-->
+<!--                  <td>{{i.name}}</td>-->
+<!--                  <td>{{i.email}}</td>-->
+<!--                  <td>{{i.contact}}</td>-->
+<!--                  <td>{{i.domain}}</td>-->
+<!--                  <td><a href="media/{{ i.resume }}">Resume</a></td>-->
+<!--                  <td><a href="{{j.github}}">{{j.github}}</a></td>-->
+<!--                  <td>{{j.experience}}</td>-->
+<!--                  <td>{{i.mark}}</td>-->
+<!--                  <td>{{i.date}}</td>-->
+<!--                  <td><a href="/view/{{j.id}}" class="fa fa-eye"></a></td>-->
+<!--              </tr>-->
+<!--              {% endfor %}-->
+<!--          </table>-->
+<!--     <button id="export-button" class="btn btn-primary">Export to Excel</button>-->
+<!--    <br>-->
+<!--</div>-->
+
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>-->
+
+<!--<script>-->
+<!--          setTimeout(function()-->
+<!--          {-->
+<!--            if($("#msg").length > 0)-->
+<!--             {-->
+<!--                $("#msg").remove();-->
+<!--             }-->
+<!--          },3000);-->
+
+<!--    document.getElementById('export-button').addEventListener('click', function() {-->
+<!--    var table = document.getElementById('data-table');-->
+<!--    var workbook = XLSX.utils.table_to_book(table, {sheet: "Sheet1"});-->
+<!--    var wbout = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'});-->
+
+<!--    function s2ab(s) {-->
+<!--        var buf = new ArrayBuffer(s.length);-->
+<!--        var view = new Uint8Array(buf);-->
+<!--        for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;-->
+<!--        return buf;-->
+<!--    }-->
+
+<!--    var blob = new Blob([s2ab(wbout)], {type: "application/octet-stream"});-->
+<!--    var link = document.createElement("a");-->
+<!--    link.href = URL.createObjectURL(blob);-->
+<!--    link.download = "candidate.xlsx";-->
+<!--    link.click();-->
+<!--});-->
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HR Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Floating particles background animation */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.jsdelivr.net/gh/JulianLaval/canvas-particle-network/particles.gif');
+            background-size: cover;
+            opacity: 0.10;
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+
+        .navbar-brand, .nav-link, .fa-user-circle {
+            color: #f8f9fa !important;
+        }
+
+        .profile-btn {
+            border-radius: 30px;
+            font-size: 16px;
+        }
+
+        .table-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+        }
+
+        table {
+            color: #f8f9fa;
+        }
+
+        .table thead {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .btn-primary, .btn-warning, .btn-outline-info, .btn-success {
+            border-radius: 30px;
+        }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 30px auto;
+        }
+
+        .modal-content {
+            background: #1a1a2e;
+            color: #f8f9fa;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="particles"></div>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/">THAS Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="hrdashboard"><i class="fas fa-home"></i> Home</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="hr_profile">
+                        <button class="btn btn-warning profile-btn">
+                            {% for i in data %}
+                            <i class="fas fa-user-circle"></i> {{ i.Name }}
+                            {% endfor %}
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="hrlogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">My Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% for i in data %}
+                    <p><strong>Name:</strong> {{ i.Name }}</p>
+                    <p><strong>Email:</strong> {{ i.Email }}</p>
+                    <p><strong>Company:</strong> {{ i.Company }}</p>
+                    <p><strong>Contact:</strong> {{ i.Contact }}</p>
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'msg.html' %}
+
+<div class="container">
+    <form action="search" method="post" class="search-bar" id="form">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="search" name="search" class="form-control" placeholder="Search by Domain Name...">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table class="table table-hover" id="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Domain</th>
+                    <th>Resume</th>
+                    <th>Github</th>
+                    <th>Experience</th>
+                    <th>Test Remark</th>
+                    <th>Test Date</th>
+                    <th>Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i,j in combined_data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.contact }}</td>
+                    <td>{{ i.domain }}</td>
+                    <td><a href="/media/{{ i.resume }}" target="_blank">Resume</a></td>
+                    <td><a href="{{ j.github }}" target="_blank">GitHub</a></td>
+                    <td>{{ j.experience }}</td>
+                    <td>{{ i.mark }}</td>
+                    <td>{{ i.date }}</td>
+                    <td><a href="/view/{{ j.id }}" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button id="export-button" class="btn btn-success mt-3"><i class="fas fa-file-excel"></i> Export to Excel</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+    document.getElementById('export-button').addEventListener('click', function () {
+        var table = document.getElementById('data-table');
+        var workbook = XLSX.utils.table_to_book(table, {sheet: "Sheet1"});
+        var wbout = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'});
+
+        function s2ab(s) {
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        }
+
+        var blob = new Blob([s2ab(wbout)], {type: "application/octet-stream"});
+        var link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "candidate_data.xlsx";
+        link.click();
+    });
+</script>
+</body>
+</html>

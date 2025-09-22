@@ -1,0 +1,69 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body class="bg-gray-100 overflow-auto h-screen">
+   {% include 'Admin/navbar.html' %}
+     <div class="flex-1 flex flex-col ml-0 md:ml-64 transition-all duration-200 ease-in-out" id="main-content">
+         {% if messages %}
+    <div id="alert-message" class="fixed top-12 right-5 bg-green-500 text-white p-3 rounded shadow-lg">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        // Automatically hide the alert message after 3 seconds
+        setTimeout(function() {
+            var alertBox = document.getElementById("alert-message");
+            if (alertBox) {
+                alertBox.style.display = "none";
+            }
+        }, 3000);
+    </script>
+{% endif %}
+         <div class="container mx-auto mt-10 px-6">
+            <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10">
+                <div class="flex items-center p-6 bg-gradient-to-r from-gray-900 to-gray-700 text-white">
+                    <div class="w-32 h-32 rounded-full border-4 border-white overflow-hidden">
+                        <img src="{% static 'images/bmw.jfif' %}" alt="Admin Profile" class="w-full h-full object-cover">
+                    </div>
+                    {% for i in data %}
+                    <div class="ml-6">
+                        <h2 class="text-2xl font-bold">{{ i.Name }}</h2>
+                        <p class="text-sm opacity-80">Administrator</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-gray-600 font-semibold">Email:</p>
+                            <p class="text-gray-900">{{ i.Email }}</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 font-semibold">Role:</p>
+                            <p class="text-gray-900">{{ i.Role }}</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 font-semibold">Contact:</p>
+                            <p class="text-gray-900">{{ i.Contact }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-6 flex justify-between">
+                        <a href="change_pass"><button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Change Password</button></a>
+                        <a href="update_profile"><button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded">Update Profile</button></a>
+                        <a href="Admin1"><button class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">Go Back to Dashboard</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>

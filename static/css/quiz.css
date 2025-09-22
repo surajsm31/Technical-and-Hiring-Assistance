@@ -1,0 +1,15 @@
+body{
+background:url("/static/images/tahas.png");
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+.btn{
+margin-left:100px;
+}
+
+.navbar-brand{
+background: -webkit-linear-gradient(#2dfcfd,#20608a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

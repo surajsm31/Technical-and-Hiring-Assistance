@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedbacks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   {% include 'Admin/navbar.html' %}
+   <div class="flex-1 flex flex-col ml-0 md:ml-64 transition-all duration-200 ease-in-out" id="main-content">
+     <main class="p-6 overflow-auto h-screen">
+         {% if messages %}
+    <div id="alert-message" class="fixed top-12 right-5 bg-green-500 text-white p-3 rounded shadow-lg">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        // Automatically hide the alert message after 3 seconds
+        setTimeout(function() {
+            var alertBox = document.getElementById("alert-message");
+            if (alertBox) {
+                alertBox.style.display = "none";
+            }
+        }, 3000);
+    </script>
+{% endif %}
+         <br>
+       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class=" w-full text-sm text-left text-gray-500" id="content">
+                    <caption class="p-3 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                       User Feedbacks
+                    </caption>
+                    <thead class="text-xs text-gray-700  uppercase bg-gray-400">
+                        <tr>
+                            <th scope="col" class="px-3 py-3">Sr.No</th>
+                            <th scope="col" class="px-6 py-3">Name</th>
+                            <th scope="col" class="px-6 py-3">Email</th>
+                            <th scope="col" class="px-6 py-3">Message/Feedback</th>
+<!--                            <th scope="col" class="px-6 py-3">Action</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                        <tr class="bg-white border-b">
+                            <td class="px-3 py-4">{{ forloop.counter }}</td>
+                            <td class="px-6 py-4 font-medium text-gray-900">{{ i.Name }}</td>
+                            <td class="px-6 py-4">{{ i.Email }}</td>
+                            <td class="px-6 py-4">{{ i.Message}}</td>
+<!--                            <td class="px-6 py-4"><a href="/delete_cate/{{i.id}}" class="btn btn-danger">Delete</a></td>-->
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+       </div>
+     </main>
+   </div>
+
+   <script>
+        const sidebar = document.getElementById('sidebar');
+        const menuBtn = document.getElementById('menu-btn');
+        const mainContent = document.getElementById('main-content');
+        const menuItems = document.querySelectorAll('.menu-item');
+         const userDropdownBtn = document.getElementById('user-dropdown-btn');
+        const userDropdown = document.getElementById('user-dropdown');
+
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                mainContent.classList.remove('ml-64');
+                mainContent.classList.add('ml-0');
+            } else {
+                mainContent.classList.remove('ml-0');
+                mainContent.classList.add('ml-64');
+            }
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-x-full');
+                    mainContent.classList.remove('ml-64');
+                    mainContent.classList.add('ml-0');
+                }
+            });
+        });
+
+        userDropdownBtn.addEventListener('click', () => {
+            userDropdown.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

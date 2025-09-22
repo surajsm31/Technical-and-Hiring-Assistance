@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .register-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        .btn-custom {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h3 class="text-center mb-4">Developer Registration</h3>
+        <form action="register" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="full_name" required class="form-control" placeholder="Enter your full name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" id="email" required class="form-control" placeholder="Enter your email">
+                <small id="emailError" class="text-danger"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Education</label>
+                <input type="text" name="education" required class="form-control" placeholder="Enter your highest qualification">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Skills</label>
+                <input type="text" name="skills" required class="form-control" placeholder="e.g., Python, JavaScript, Django">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Experience Level</label>
+                <select name="experience" required class="form-control">
+                    <option value="Fresher">Fresher</option>
+                    <option value="1-3 years">1-3 years</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="5+ years">5+ years</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">GitHub Profile</label>
+                <input type="url" name="github" required class="form-control" placeholder="Enter GitHub profile link">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Portfolio Website</label>
+                <input type="url" name="portfolio" class="form-control" placeholder="Enter portfolio website (optional)">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <div class="d-flex gap-3">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female" required> Female</label>
+                    <label><input type="radio" name="gender" value="Other" required> Other</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <textarea name="address" required class="form-control" placeholder="Enter your address"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Graduation Passout Year</label>
+                <select name="passout_year" required class="form-control" id="passoutYear"></select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contact Number</label>
+                <input type="tel" name="contact_number" required class="form-control" placeholder="Enter phone number">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" id="password" required class="form-control" placeholder="Enter password">
+                <input type="checkbox" onclick="password.type = this.checked ? 'text' : 'password' "><i style="font-size:15px;"> Check Password</i>
+                <small id="passwordError" class="text-danger"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" name="confirm_password" required class="form-control" placeholder="Confirm your password">
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success btn-custom">Register</button>
+                <button type="reset" class="btn btn-danger btn-custom">Reset</button>
+                <a href="dev" class="btn btn-primary btn-custom">Back</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('email').addEventListener('input', function () {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            document.getElementById('emailError').textContent = emailPattern.test(this.value) ? '' : 'Invalid email format';
+        });
+
+        document.getElementById('password').addEventListener('input', function () {
+            document.getElementById('passwordError').textContent = this.value.length >= 8 ? '' : 'Password must be at least 8 characters';
+        });
+
+        const currentYear = new Date().getFullYear();
+        let options = '';
+        for (let year = 2021; year <= currentYear; year++) {
+            options += `<option value="${year}">${year}</option>`;
+        }
+        document.getElementById('passoutYear').innerHTML = options;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

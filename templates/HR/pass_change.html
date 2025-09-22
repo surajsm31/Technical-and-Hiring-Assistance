@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c3d2a5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            text-align: left;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #09334b;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #06212d;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center><h2>Change Password</h2></center>
+        <form action="change_hrpass" method="post" enctype="multipart/form-data" id="passwordForm">
+            {% csrf_token %}
+            {% for i in data %}
+            <input type="email" id="email" name="email" value="{{ i.Email }}" hidden>
+            {% endfor %}
+
+            <label for="oldpassword">Old Password :</label>
+            <input type="password" id="oldPassword" name="old_password" placeholder="Old Password" required>
+
+            <label for="newpassword">New Password :</label>
+            <input type="password" id="newPassword" name="new_password" placeholder="New Password" onkeyup="validatePassword()" required>
+            <span class="error" id="passwordError">Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.</span>
+
+            <label for="confirmpassword">Confirm Password :</label>
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" onkeyup="checkPasswordMatch()" required>
+            <span class="error" id="confirmError">Passwords do not match.</span>
+
+            <button type="submit" class="btn">Update Password</button>
+        </form>
+    </div>
+
+    <script>
+        function validatePassword() {
+            let newPassword = document.getElementById("newPassword").value;
+            let passwordError = document.getElementById("passwordError");
+
+            // Regex for password: Min 8 characters, at least one uppercase, one lowercase, one number, one special character
+            let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!regex.test(newPassword)) {
+                passwordError.style.display = "block";
+            } else {
+                passwordError.style.display = "none";
+            }
+        }
+
+        function checkPasswordMatch() {
+            let newPassword = document.getElementById("newPassword").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let confirmError = document.getElementById("confirmError");
+
+            if (newPassword !== confirmPassword) {
+                confirmError.style.display = "block";
+            } else {
+                confirmError.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

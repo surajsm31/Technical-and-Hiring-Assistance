@@ -1,0 +1,83 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Completion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        .certificate {
+            width: 80%;
+            margin: 50px auto;
+            padding: 30px;
+            border: 10px solid #09334b;
+            background: white;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #09334b;
+            font-size: 40px;
+        }
+        .content {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .signatures {
+            display: flex;
+            justify-content: right;
+            margin-top: 50px;
+        }
+        .sign {
+            width: 45%;
+            text-align: center;
+        }
+        .sign img {
+            width: 100px;
+            height: 100px;
+        }
+        .btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #09334b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+{% for i in data  %}
+    <div class="certificate">
+        <h1>Certificate of Completion</h1>
+        <p class="content">This is to certify that</p>
+        <h2>{{ i.name }}</h2>
+        <p class="content">has successfully completed the exam of </p>
+        <h3>{{ i.domain }}</h3>
+        <p class="content">on {{ i.date }}</p>
+        <p class="content">Score: {{ i.percentage }}%</p>
+
+
+        <div class="signatures">
+<!--            <div class="sign">-->
+<!--                <img src="/static/images/instructor_sign.png" alt="Instructor Signature">-->
+<!--                <p>Instructor</p>-->
+<!--            </div>-->
+            <div class="sign">
+                <img src="/static/images/admin.png" alt="Administrator Signature">
+                <p>Administration</p>
+            </div>
+        </div>
+                <p class="note">This is a computerized generated certificate and does not require physical signatures.</p>
+
+        <button class="btn" onclick="window.print()">Download Certificate</button>
+    </div>
+ {% endfor %}
+<br>
+</body>
+</html>

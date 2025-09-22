@@ -1,0 +1,9 @@
+For Running the Project
+
+step 1 :-
+install the packages
+
+install django :- pip install django
+install Api :- pip install django sib-api-v3-sdk
+install docs :- pip install docx2txt scikit-learn django
+install pdf :- pip install PyPDF2

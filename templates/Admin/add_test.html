@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Test Questions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Add Test Question</h2>
+        <form action="add_question" method="POST" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label class="block text-gray-700">Question:</label>
+                <input type="text" name="question" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700">Option 1:</label>
+                <input type="text" name="option1" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700">Option 2:</label>
+                <input type="text" name="option2" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700">Option 3:</label>
+                <input type="text" name="option3" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700">Option 4:</label>
+                <input type="text" name="option4" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700">Correct Option:</label>
+                <input type="text" name="correct_option" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label for="quizDomain" class="block text-gray-700">Quiz Domain:</label>
+                <select id="quizDomain" name="category" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                     {% for i in data %}
+                     <option value="{{ i.Domain }}">{{ i.category }}</option>
+                     {% endfor %}
+                </select>
+            </div>
+            <div class="grid grid-flow-col grid-rows-1 ">
+                <button type="submit" class="w-32 bg-green-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-medium text-lg">
+                    Submit
+                </button><button type="reset" class="w-32 bg-red-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-medium text-lg">
+                    Reset
+                </button>
+                  <a href="test"><button type="button" class="w-32 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-medium text-lg">
+                      Back
+                </button></a>
+              </div>
+        </form>
+    </div>
+</body>
+</html>

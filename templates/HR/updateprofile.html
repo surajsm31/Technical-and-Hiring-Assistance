@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Recruiter Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5dc95;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h2 {
+            color: #09334b;
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-update {
+            background-color: #09334b;
+            color: white;
+        }
+        .btn-cancel {
+            background-color: #ff4d4d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Recruiter Profile</h2>
+        <form action="updatehrprofile" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% for i in data %}
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" value="{{ i.Name }}" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ i.Email }}" readonly required>
+            </div>
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="text" id="contact" name="contact" value="{{ i.Contact }}" onkeyup="validateContact()" required>
+                <span id="contactError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label>Company Name</label>
+                <input type="text" name="company" value="{{ i.Company }}" required>
+            </div>
+            <div class="form-group">
+                <label>Designation</label>
+                <input type="text" name="designation" value="{{ i.Designation }}" required>
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" name="address" value="{{ i.Address }}" required>
+            </div>
+          {% endfor %}
+            <button type="submit" class="btn btn-update">Update Profile</button>
+            <button type="reset" class="btn btn-cancel">Reset</button>
+            <a href="hr_profile"><button type="button" class="btn btn-success">Go back</button></a>
+        </form>
+    </div>
+
+    <script>
+      function validateContact() {
+            let contact = document.getElementById("contact").value;
+            let error = document.getElementById("contactError");
+            let regex = /^[0-9]{10}$/;
+
+            if (!regex.test(contact)) {
+                error.innerText = "Contact number must be 10 digits";
+            } else {
+                error.innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>
