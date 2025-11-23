@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'myapp',
 ]
 
-BREVO_API_KEY = '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'
+BREVO_API_KEY = 'Use your API key'
 
 
 MIDDLEWARE = [
